@@ -1,11 +1,8 @@
 package model;
 
-public class NPC extends Player{
+public class NPC {
 
-	public NPC(String name, int playerId) {
-		super(name, playerId);
-	}
-
+	
 	public void boardCheck(Board board) {
 		
 	}
@@ -14,5 +11,9 @@ public class NPC extends Player{
 		
 	}
 	
+	@Override
+	public String toString() {
+		return "NPC";
+	}
 	
 }

@@ -1,8 +1,8 @@
 package model;
 
-public class Player {
-	protected String name;
-	protected int playerId;
+public class Player extends NPC{
+	private String name;
+	private int playerId;
 	
 	public Player(String name, int playerId) {
 		setName(name);
