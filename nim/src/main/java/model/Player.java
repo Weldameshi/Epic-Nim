@@ -25,4 +25,10 @@ public class Player extends NPC{
 		this.playerId = playerId;
 	}
 
+	@Override
+	public String toString() {
+		return getName();
+	}
+	
+	
 }

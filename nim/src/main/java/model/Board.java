@@ -15,5 +15,10 @@ public class Board {
 		this.board = board;
 	}
 
-
+	
+	public String toString() {
+		String boardString = "";
+		int counter = 0;
+		return null;
+	}
 }
