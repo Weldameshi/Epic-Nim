@@ -1,6 +1,6 @@
 package model;
 
-public class Player extends NPC{
+public class Player {
 	private String name;
 	private int playerId;
 	
