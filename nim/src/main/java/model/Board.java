@@ -3,6 +3,8 @@ package model;
 public class Board {
 	private Piece[][] board;
 	
+	
+	// Hehe
 	Board(int x, int y){
 		
 	}
