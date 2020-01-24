@@ -14,12 +14,6 @@ public class Piece {
 
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
-	}
-	
-	public String toString() {
-		return null;
-		
-	}
-	
+	}	
 	
 }
