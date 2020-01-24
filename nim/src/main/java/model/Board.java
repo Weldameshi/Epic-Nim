@@ -3,6 +3,8 @@ package model;
 public class Board {
 	private Piece[][] board;
 	
+	
+	// Hehe
 	Board(int x, int y){
 		
 	}
@@ -15,5 +17,10 @@ public class Board {
 		this.board = board;
 	}
 
-
+	
+	public String toString() {
+		String boardString = "";
+		int counter = 0;
+		return null;
+	}
 }
