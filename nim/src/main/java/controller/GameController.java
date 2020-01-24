@@ -12,6 +12,7 @@ public class GameController {
 		int fours;
 		int count = 0;
 		ArrayList<Integer> counts = new ArrayList<Integer>();
+		ArrayList<Integer> subtractedCounts = new ArrayList<Integer>();
 
 		for (int i = 0; i < board.getBoard().length; i++) {
 			for (int j = 0; j < board.getBoard()[i].length; j++) {
@@ -22,6 +23,9 @@ public class GameController {
 			counts.add(count);
 			count = 0;
 		}
+		
+		
+		
 
 	}
 

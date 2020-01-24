@@ -25,10 +25,4 @@ public class Player {
 		this.playerId = playerId;
 	}
 
-	@Override
-	public String toString() {
-		return getName();
-	}
-	
-	
 }

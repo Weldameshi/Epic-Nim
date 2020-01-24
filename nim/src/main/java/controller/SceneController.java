@@ -18,7 +18,7 @@ public class SceneController{
 			root = (AnchorPane) loader.load();
 			
 			//TODO set this size
-			Scene scene = new Scene(root, 450, 700);
+			Scene scene = new Scene(root, 650, 600);
 			scene.getStylesheets().add(cssName);
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
@@ -26,8 +26,13 @@ public class SceneController{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	//we can use this method and switch on the actions()
+	public void action() {
 		
 	}
+	
 
 
 }

@@ -20,7 +20,7 @@ public class ViewController extends Application{
 			AnchorPane root = (AnchorPane) loader.load();
 			
 			//TODO set this size
-			Scene scene = new Scene(root, 450, 700);
+			Scene scene = new Scene(root, 650, 600);
 			scene.getStylesheets().add(css);
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
