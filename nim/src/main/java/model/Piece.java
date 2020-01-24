@@ -16,10 +16,4 @@ public class Piece {
 		this.isActive = isActive;
 	}
 	
-	public String toString() {
-		return null;
-		
-	}
-	
-	
 }
