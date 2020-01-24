@@ -24,5 +24,22 @@ public class GameController {
 		}
 
 	}
+	
+	public static boolean checkBoard(Board board) {
+		int count = 0;
+		for(int i = 0; i < board.getBoard().length; i++) {
+			for(int j = 0; j < board.getBoard()[i].length; j++) {
+				if(board.getBoard()[i][j].isActive()) {
+					count++;
+				}
+			}
+		}
+		
+		if(count > 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 }
