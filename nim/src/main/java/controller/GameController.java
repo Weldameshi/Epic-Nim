@@ -3,8 +3,13 @@ package controller;
 import java.util.ArrayList;
 
 import model.Board;
+import model.Difficulty;
 
 public class GameController {
+	
+	public boolean isAgainstAI;
+	public boolean lastPieceWins;
+	public Difficulty selectedDifficulty;
 
 	public static void takeTurn(Board board) {
 		int ones;
