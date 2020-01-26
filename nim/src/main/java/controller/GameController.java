@@ -2,14 +2,35 @@ package controller;
 
 import java.util.ArrayList;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.RadioButton;
 import model.Board;
 import model.Difficulty;
 
 public class GameController {
 	
-	public boolean isAgainstAI;
-	public boolean lastPieceWins;
-	public Difficulty selectedDifficulty;
+	public static boolean isAgainstAI;
+	public static Difficulty selectedDifficulty;
+	public static boolean lastPieceWins;
+	
+	@FXML
+	public static RadioButton playerVsAIRB, easyRB, mediumRB, lastPieceWinRB;
+	
+	public static void startGame() {
+		isAgainstAI = playerVsAIRB.isSelected();
+		lastPieceWins = lastPieceWinRB.isSelected();
+		if(easyRB.isSelected()) {
+			selectedDifficulty = Difficulty.EASY;
+		} else if(mediumRB.isSelected()) {
+			selectedDifficulty = Difficulty.MEDIUM;
+		} else {
+			selectedDifficulty = Difficulty.HARD;
+		}
+	}
+	
+	public static void playGame() {
+		
+	}
 
 	public static void takeTurn(Board board) {
 		int ones = 0;
