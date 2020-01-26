@@ -21,6 +21,7 @@ public class GameController {
 	public static boolean isAgainstAI, lastPieceWins;
 	public static Difficulty selectedDifficulty;
 	public static CurrentPage currentPage = CurrentPage.MAIN_PAGE;
+	public static String selectSprite;
 	
 	@FXML
 	public static RadioButton playerVsAIRB, playerVsPlayerRB, easyRB, mediumRB, hardRB, lastPieceWinRB, lastPieceLossRB;
@@ -66,6 +67,8 @@ public class GameController {
 	// take all the information from name page to make the characters
 	public static void enterNames() {
 		Player player1 = new Player(player1TF.getText(), 1, true);
+		Player player2 = isAgainstAI ? new Player("NPC", 2, false) : new Player(player2TF.getText(), 2, true);
+		
 	}
 	
 	// game logic
