@@ -1,21 +1,45 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.image.*;
 import model.Board;
+import model.CurrentPage;
 import model.Difficulty;
+import model.Player;
 
 public class GameController {
 	
-	public static boolean isAgainstAI;
+	public static boolean isAgainstAI, lastPieceWins;
 	public static Difficulty selectedDifficulty;
-	public static boolean lastPieceWins;
+	public static CurrentPage currentPage = CurrentPage.MAIN_PAGE;
 	
 	@FXML
-	public static RadioButton playerVsAIRB, easyRB, mediumRB, lastPieceWinRB;
+	public static RadioButton playerVsAIRB, playerVsPlayerRB, easyRB, mediumRB, hardRB, lastPieceWinRB, lastPieceLossRB;
 	
+	@FXML
+	public static Button mainMenuSubmitBtn;
+	
+	@FXML
+	public static Label eGamePlayer1NameLabel, eGamePlayer2NameLabel, eGamePlayer1ScoreLabel, eGamePlayer2ScoreLabel,
+							mGamePlayer1NameLabel, mGamePlayer2NameLabel, mGamePlayer1ScoreLabel, mGamePlayer2ScoreLabel,
+							hGamePlayer1NameLabel, hGamePlayer2NameLabel, hGamePlayer1ScoreLabel, hGamePlayer2ScoreLabel;
+	
+	@FXML
+	public static TextField player1TF, player2TF;
+	
+	@FXML
+	public static ImageView sprite1IV, sprite2IV, sprite3IV;
+	
+	// gets the info the user inputs from the mainpage
 	public static void startGame() {
 		isAgainstAI = playerVsAIRB.isSelected();
 		lastPieceWins = lastPieceWinRB.isSelected();
@@ -26,8 +50,25 @@ public class GameController {
 		} else {
 			selectedDifficulty = Difficulty.HARD;
 		}
+		
+		currentPage = currentPage.ENTER_NAMES;
 	}
 	
+	// keyevent for the user to hit enter on the enter name page
+	public void keyPress(KeyEvent key) throws IOException {
+		if(key.getCode() == KeyCode.ENTER && currentPage == CurrentPage.ENTER_NAMES) {
+			enterNames();
+		}else {
+			
+		}
+	}
+	
+	// take all the information from name page to make the characters
+	public static void enterNames() {
+		Player player1 = new Player(player1TF.getText(), 1, true);
+	}
+	
+	// game logic
 	public static void playGame() {
 		
 	}

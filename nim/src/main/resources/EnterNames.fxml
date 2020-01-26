@@ -6,8 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="650.0">
          <children>
@@ -15,19 +14,19 @@
             <Label layoutX="308.0" layoutY="60.0" text="Enter Names" />
             <Label layoutX="100.0" layoutY="168.0" text="Player 1" />
             <Label layoutX="109.0" layoutY="243.0" text="Player 2" />
-            <TextField layoutX="373.0" layoutY="163.0" />
-            <TextField layoutX="381.0" layoutY="249.0" />
-            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="52.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true">
+            <TextField fx:id="player1TF" layoutX="373.0" layoutY="163.0" />
+            <TextField fx:id="player2TF" layoutX="381.0" layoutY="249.0" />
+            <ImageView fx:id="sprite1IV" fitHeight="75.0" fitWidth="75.0" layoutX="52.0" layoutY="407.0" onMouseClicked="#sprite1Selected" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../../Pictures/blueDot.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="271.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="sprite2IV" fitHeight="75.0" fitWidth="75.0" layoutX="271.0" layoutY="416.0" onMouseClicked="#sprite2Selected" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../../Pictures/redDot.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="467.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="sprite3IV" fitHeight="75.0" fitWidth="75.0" layoutX="467.0" layoutY="428.0" onMouseClicked="#sprite3Selected" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../../Pictures/purpleDot.jpg" />
                </image>
