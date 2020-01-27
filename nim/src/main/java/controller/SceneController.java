@@ -18,7 +18,7 @@ public class SceneController{
 			root = (AnchorPane) loader.load();
 			
 			//TODO set this size
-			Scene scene = new Scene(root, 450, 700);
+			Scene scene = new Scene(root, 600, 650);
 			scene.getStylesheets().add(cssName);
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);

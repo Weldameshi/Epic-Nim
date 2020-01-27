@@ -11,17 +11,12 @@ public class ViewController extends Application{
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			//TODO set the stuff to the main page
-			String css ="";
-			String fxml = "";
-			
 			SceneController.primaryStage = primaryStage;
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainPage.fxml"));
+			loader.setController(new SceneController());
 			AnchorPane root = (AnchorPane) loader.load();
 			
-			//TODO set this size
-			Scene scene = new Scene(root, 450, 700);
-			scene.getStylesheets().add(css);
+			Scene scene = new Scene(root, 600, 650);
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
