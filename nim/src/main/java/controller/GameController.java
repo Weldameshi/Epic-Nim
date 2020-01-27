@@ -83,8 +83,6 @@ public class GameController {
 				sc.changeScene("/HardGame.fxml", "");
 				break;
 			}
-		}else {
-			sc.changeScene("/EnterNames.fxml", "");
 		}
 		
 	}
@@ -108,6 +106,7 @@ public class GameController {
 				}
 			}
 		} while (checkBoard(board));
+		sc.changeScene("/PlayAgain.fxml", "");
 	}
 	
 	public void takeTurn(Board board) {
