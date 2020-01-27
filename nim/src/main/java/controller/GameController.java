@@ -24,6 +24,8 @@ public class GameController {
 	public static String selectSprite;
 	public static int round = 0;
 
+	public static Player player1;
+	public static Player player2;
 	public static SceneController sc = new SceneController();
 
 	@FXML
@@ -69,22 +71,30 @@ public class GameController {
 	// take all the information from name page to make the characters
 	public void enterNames() {
 		if (!player1TF.getText().trim().isEmpty() && (isAgainstAI || !player2TF.getText().trim().isEmpty())) {
-			Player player1 = new Player(player1TF.getText(), 1, true);
-			Player player2 = isAgainstAI ? new Player("NPC", 2, false) : new Player(player2TF.getText(), 2, true);
+			player1 = new Player(player1TF.getText(), 1, true);
+			player2 = isAgainstAI ? new Player("NPC", 2, false) : new Player(player2TF.getText(), 2, true);
 			// change scene to which game mode they selected
 			switch (selectedDifficulty) {
 			case EASY:
+				currentPage = CurrentPage.EASY_GAME;
 				sc.changeScene("/EasyGame.fxml", "");
 				break;
 			case MEDIUM:
+				currentPage = CurrentPage.MEDIUM_GAME;
 				sc.changeScene("/MediumGame.fxml", "");
 				break;
 			case HARD:
+				currentPage = CurrentPage.HARD_GAME;
 				sc.changeScene("/HardGame.fxml", "");
 				break;
 			}
 		}
 
+	}
+	
+	public void getHelp() {
+		currentPage = CurrentPage.RULES;
+		sc.changeScene("/Rules.fxml", "");
 	}
 
 	// game logic
@@ -93,7 +103,7 @@ public class GameController {
 		do {
 			round++;
 			if (round % 2 != 0) {
-				// player
+				takeTurn(board, player1);
 
 			} else {
 				// player 2 or npc
@@ -101,16 +111,18 @@ public class GameController {
 					// npc
 					takeNPCTurn(board);
 				} else {
-					// player 2
+					takeTurn(board, player2);
 
 				}
 			}
 		} while (checkBoard(board));
+		currentPage = CurrentPage.PLAY_AGAIN;
 		sc.changeScene("/PlayAgain.fxml", "");
 	}
 
-	public void takeTurn(Board board) {
+	public void takeTurn(Board board, Player player) {
 
+		
 	}
 
 	public void takeNPCTurn(Board board) {
