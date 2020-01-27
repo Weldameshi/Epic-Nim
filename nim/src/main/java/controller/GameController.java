@@ -143,6 +143,26 @@ public class GameController {
 			}
 		}
 		
+		for (int i = 0; i < counts.size(); i++) {
+			if (counts.get(i)/2 > 0) {
+				subtractedCounts.add((counts.get(i) - (2 * (counts.get(i)/2))));
+				fours += (subtractedCounts.get(i)/2);
+			}
+			else {
+				subtractedCounts.add(0);
+			}
+		}
+		
+		for (int i = 0; i < counts.size(); i++) {
+			if (counts.get(i)/1 > 0) {
+				subtractedCounts.add((counts.get(i) - (1 * (counts.get(i)/1))));
+				fours += (subtractedCounts.get(i)/1);
+			}
+			else {
+				subtractedCounts.add(0);
+			}
+		}
+		
 		
 
 	}
