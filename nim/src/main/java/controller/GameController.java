@@ -23,6 +23,7 @@ public class GameController {
 	public static CurrentPage currentPage = CurrentPage.MAIN_PAGE;
 	public static String selectSprite;
 	public static int round = 0;
+	public static Board board = null;
 
 	public static Player player1;
 	public static Player player2;
@@ -99,34 +100,34 @@ public class GameController {
 
 	// game logic
 	public void playGame() {
-		Board board = makeNewBoard();
+		 board = makeNew();
 		do {
 			round++;
 			if (round % 2 != 0) {
-				takeTurn(board, player1);
+				takeTurn(player1);
 
 			} else {
 				// player 2 or npc
 				if (isAgainstAI) {
 					// npc
-					takeNPCTurn(board);
+					takeNPCTurn();
 				} else {
-					takeTurn(board, player2);
+					takeTurn(player2);
 
 				}
 			}
-		} while (checkBoard(board));
+		} while (check());
 		currentPage = CurrentPage.PLAY_AGAIN;
 		sc.changeScene("/PlayAgain.fxml", "");
 	}
 
-	public void takeTurn(Board board, Player player) {
+	public void takeTurn( Player player) {
 		//TODO this
 		
 	}
 	
 
-	public void takeNPCTurn(Board board) {
+	public void takeNPCTurn() {
 		int ones = 0;
 		int twos = 0;
 		int fours = 0;
@@ -445,7 +446,7 @@ public class GameController {
 
 	}
 
-	public boolean checkBoard(Board board) {
+	public boolean check() {
 		int count = 0;
 		for (int i = 0; i < board.getBoard().length; i++) {
 			for (int j = 0; j < board.getBoard()[i].length; j++) {
@@ -462,7 +463,7 @@ public class GameController {
 		}
 	}
 
-	public Board makeNewBoard() {
+	public Board makeNew() {
 		Board board;
 		if (selectedDifficulty == Difficulty.EASY) {
 			int[] pileNumber = { 3, 3 };
