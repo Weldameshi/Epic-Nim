@@ -56,7 +56,7 @@ public class GameController {
 			selectedDifficulty = Difficulty.HARD;
 		}
 
-		currentPage = currentPage.ENTER_NAMES;
+		currentPage = CurrentPage.ENTER_NAMES;
 		sc.changeScene("/EnterNames.fxml", "");
 	}
 
@@ -104,16 +104,14 @@ public class GameController {
 		do {
 			round++;
 			if (round % 2 != 0) {
-				takeTurn(player1);
-
+				//allow the player to take a turn
 			} else {
 				// player 2 or npc
 				if (isAgainstAI) {
 					// npc
 					takeNPCTurn();
 				} else {
-					takeTurn(player2);
-
+					//allow a player to take a turn
 				}
 			}
 		} while (check());
@@ -121,11 +119,7 @@ public class GameController {
 		sc.changeScene("/PlayAgain.fxml", "");
 	}
 
-	public void takeTurn( Player player) {
-		//TODO this
-		
-	}
-	
+
 
 	public void takeNPCTurn() {
 		int ones = 0;
