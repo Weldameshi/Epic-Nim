@@ -292,7 +292,7 @@ public class GameController {
 
 	}
 
-	}
+	
 
 	public boolean checkBoard(Board board) {
 		int count = 0;
