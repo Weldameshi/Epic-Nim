@@ -27,12 +27,10 @@ public class GameController {
 	public static RadioButton playerVsAIRB, playerVsPlayerRB, easyRB, mediumRB, hardRB, lastPieceWinRB, lastPieceLossRB;
 	
 	@FXML
-	public static Button mainMenuSubmitBtn;
+	public static Button mainMenuSubmitBtn, helpBtn;
 	
 	@FXML
-	public static Label eGamePlayer1NameLabel, eGamePlayer2NameLabel, eGamePlayer1ScoreLabel, eGamePlayer2ScoreLabel,
-							mGamePlayer1NameLabel, mGamePlayer2NameLabel, mGamePlayer1ScoreLabel, mGamePlayer2ScoreLabel,
-							hGamePlayer1NameLabel, hGamePlayer2NameLabel, hGamePlayer1ScoreLabel, hGamePlayer2ScoreLabel;
+	public static Label gamePlayer1NameLabel, gamePlayer2NameLabel, gamePlayer1ScoreLabel, gamePlayer2ScoreLabel;
 	
 	@FXML
 	public static TextField player1TF, player2TF;
@@ -52,6 +50,7 @@ public class GameController {
 			selectedDifficulty = Difficulty.HARD;
 		}
 		
+		// need to change scenes to enter names page
 		currentPage = currentPage.ENTER_NAMES;
 	}
 	
@@ -66,8 +65,12 @@ public class GameController {
 	
 	// take all the information from name page to make the characters
 	public static void enterNames() {
-		Player player1 = new Player(player1TF.getText(), 1, true);
-		Player player2 = isAgainstAI ? new Player("NPC", 2, false) : new Player(player2TF.getText(), 2, true);
+		if(!player1TF.getText().trim().isEmpty() && (isAgainstAI || !player2TF.getText().trim().isEmpty())) {
+			Player player1 = new Player(player1TF.getText(), 1, true);
+			Player player2 = isAgainstAI ? new Player("NPC", 2, false) : new Player(player2TF.getText(), 2, true);
+			//change scene to which game mode they selected
+			
+		}
 		
 	}
 	

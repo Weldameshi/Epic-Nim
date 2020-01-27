@@ -29,9 +29,9 @@
             <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <Label fx:id="eGamePlayer1NameLabel" layoutX="56.0" layoutY="54.0" text="Player 1" />
-      <Label fx:id="eGamePlayer2NameLabel" layoutX="523.0" layoutY="54.0" text="Player 2" />
-      <Label fx:id="eGamePlayer1ScoreLabel" layoutX="65.0" layoutY="86.0" text="Score" />
-      <Label fx:id="eGamePlayer2ScoreLabel" layoutX="532.0" layoutY="97.0" text="Score" />
+      <Label fx:id="gamePlayer1NameLabel" layoutX="56.0" layoutY="54.0" text="Player 1" />
+      <Label fx:id="gamePlayer2NameLabel" layoutX="523.0" layoutY="54.0" text="Player 2" />
+      <Label fx:id="gamePlayer1ScoreLabel" layoutX="65.0" layoutY="86.0" text="Score" />
+      <Label fx:id="gamePlayer2ScoreLabel" layoutX="532.0" layoutY="97.0" text="Score" />
    </children>
 </AnchorPane>
