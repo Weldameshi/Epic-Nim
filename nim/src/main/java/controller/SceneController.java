@@ -14,19 +14,20 @@ public class SceneController{
 	public void changeScene(String fxmlName, String cssName){
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlName));
-			AnchorPane root;
-			root = (AnchorPane) loader.load();
+			loader.setController(new SceneController());
+			AnchorPane root = (AnchorPane) loader.load();
 			
-			//TODO set this size
 			Scene scene = new Scene(root, 600, 650);
-			scene.getStylesheets().add(cssName);
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+	}
+	
+	public void startGame(){
+		changeScene("/EnterNames.fxml", "");
 	}
 
 
