@@ -22,6 +22,7 @@ public class GameController {
 	public static Difficulty selectedDifficulty;
 	public static CurrentPage currentPage = CurrentPage.MAIN_PAGE;
 	public static String selectSprite;
+	public static int round = 0;
 	
 	public static SceneController sc = new SceneController();
 	
@@ -52,8 +53,8 @@ public class GameController {
 			selectedDifficulty = Difficulty.HARD;
 		}
 		
-		sc.changeScene("/EnterNames.fxml", "");
 		currentPage = currentPage.ENTER_NAMES;
+		sc.changeScene("/EnterNames.fxml", "");
 	}
 	
 	// keyevent for the user to hit enter on the enter name page
@@ -92,11 +93,28 @@ public class GameController {
 	public void playGame() {
 		Board board = makeNewBoard();
 		do {
-			
+			round++;
+			if(round % 2 != 0) {
+				//player
+				
+			} else {
+				//player 2 or npc
+				if(isAgainstAI) {
+					// npc
+					takeNPCTurn(board);
+				} else {
+					//player 2
+					
+				}
+			}
 		} while (checkBoard(board));
 	}
-
+	
 	public void takeTurn(Board board) {
+		
+	}
+
+	public void takeNPCTurn(Board board) {
 		int ones = 0;
 		int twos = 0;
 		int fours = 0;

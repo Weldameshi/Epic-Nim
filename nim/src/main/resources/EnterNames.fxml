@@ -15,7 +15,7 @@
             <Label layoutX="283.0" layoutY="46.0" text="Enter Names" />
             <Label layoutX="100.0" layoutY="168.0" text="Player 1" />
             <Label layoutX="100.0" layoutY="239.0" text="Player 2" />
-            <TextField layoutX="373.0" layoutY="163.0" />
+            <TextField fx:id="player1TF" layoutX="373.0" layoutY="163.0" />
             <TextField layoutX="373.0" layoutY="234.0" />
             <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="100.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -33,7 +33,9 @@
                </image>
             </ImageView>
             <Label layoutX="308.0" layoutY="359.0" text="Pick Spite" />
+
             <Button onAction="#enterNames" layoutX="293.0" layoutY="521.0" mnemonicParsing="false" text="Submit" />
+
          </children>
       </AnchorPane>
    </children>
