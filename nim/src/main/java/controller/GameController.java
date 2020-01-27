@@ -71,7 +71,17 @@ public class GameController {
 			Player player1 = new Player(player1TF.getText(), 1, true);
 			Player player2 = isAgainstAI ? new Player("NPC", 2, false) : new Player(player2TF.getText(), 2, true);
 			//change scene to which game mode they selected
-			
+			switch(selectedDifficulty) {
+			case EASY:
+				sc.changeScene("/HardGame.fxml", "");
+				break;
+			case MEDIUM:
+				sc.changeScene("/HardGame.fxml", "");
+				break;
+			case HARD:
+				sc.changeScene("/HardGame.fxml", "");
+				break;
+			}
 		}
 		
 	}
