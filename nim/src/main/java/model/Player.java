@@ -3,10 +3,12 @@ package model;
 public class Player {
 	private String name;
 	private int playerId;
+	private boolean activePlayer;
 	
-	public Player(String name, int playerId) {
+	public Player(String name, int playerId, boolean activePlayer) {
 		setName(name);
 		setPlayerId(playerId);
+		setActivePlayer(activePlayer);
 	}
 	
 	public String getName() {
@@ -25,4 +27,11 @@ public class Player {
 		this.playerId = playerId;
 	}
 
+	public boolean isActivePlayer() {
+		return activePlayer;
+	}
+	
+	public void setActivePlayer(boolean activePlayer) {
+		this.activePlayer = activePlayer;
+	}
 }

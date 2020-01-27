@@ -4,9 +4,14 @@ public class Board {
 	private Piece[][] board;
 	
 	
-	// Hehe
-	Board(int x, int y){
-		
+	public Board(int[] pileNumber){
+		board = new Piece[pileNumber.length][];
+		for(int i = 0; i< pileNumber.length; i++) {
+			for(int j = 0; j < pileNumber[i]; j++) {
+				Piece piece = new Piece();
+				board[i][j] = piece;
+			}
+		}
 	}
 
 	public Piece[][] getBoard() {
@@ -23,4 +28,6 @@ public class Board {
 		int counter = 0;
 		return null;
 	}
+
+
 }

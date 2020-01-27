@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -15,14 +16,23 @@
                   <Font size="39.0" />
                </font>
             </Label>
-            <Button layoutX="293.0" layoutY="477.0" mnemonicParsing="false" text="Submit" />
-            <RadioButton layoutX="125.0" layoutY="172.0" mnemonicParsing="false" text="1 Player vs AI" />
-            <RadioButton layoutX="125.0" layoutY="253.0" mnemonicParsing="false" text="2 Players" />
-            <RadioButton layoutX="420.0" layoutY="172.0" mnemonicParsing="false" text="Easy" />
-            <RadioButton layoutX="420.0" layoutY="232.0" mnemonicParsing="false" text="Medium" />
-            <RadioButton layoutX="420.0" layoutY="290.0" mnemonicParsing="false" text="Hard" />
-            <RadioButton layoutX="168.0" layoutY="395.0" mnemonicParsing="false" text="Taking last Piece" />
-            <RadioButton layoutX="401.0" layoutY="395.0" mnemonicParsing="false" text="Leaving last piece" />
+            <Button fx:id="mainMenuSubmitBtn" layoutX="293.0" layoutY="477.0" mnemonicParsing="false" onAction="#startGame" text="Submit" />
+            <RadioButton fx:id="playerVsAIRB" layoutX="125.0" layoutY="172.0" mnemonicParsing="false" selected="true" text="1 Player vs AI">
+               <toggleGroup>
+                  <ToggleGroup fx:id="playAgainstRB" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="playerVsPlayerRB" layoutX="125.0" layoutY="253.0" mnemonicParsing="false" text="2 Players" toggleGroup="$playAgainstRB" />
+            <RadioButton fx:id="easyRB" layoutX="420.0" layoutY="172.0" mnemonicParsing="false" selected="true" text="Easy">
+               <toggleGroup>
+                  <ToggleGroup fx:id="difficultyRB" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="mediumRB" layoutX="420.0" layoutY="232.0" mnemonicParsing="false" text="Medium" toggleGroup="$difficultyRB" />
+            <RadioButton fx:id="hardRB" layoutX="420.0" layoutY="290.0" mnemonicParsing="false" text="Hard" toggleGroup="$difficultyRB" />
+            <RadioButton fx:id="lastPieceWinRB" layoutX="168.0" layoutY="395.0" mnemonicParsing="false" selected="true" text="Taking last Piece">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gameModeRB" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="lastPieceLossRB" layoutX="401.0" layoutY="395.0" mnemonicParsing="false" text="Leaving last piece" toggleGroup="$gameModeRB" />
          </children>
       </AnchorPane>
    </children>
