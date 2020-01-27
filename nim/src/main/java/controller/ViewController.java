@@ -13,7 +13,7 @@ public class ViewController extends Application{
 		try {
 			SceneController.primaryStage = primaryStage;
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainPage.fxml"));
-			loader.setController(new SceneController());
+			loader.setController(new GameController());
 			AnchorPane root = (AnchorPane) loader.load();
 			
 			Scene scene = new Scene(root, 600, 650);

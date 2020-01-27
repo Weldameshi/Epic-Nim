@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.image.*;
 import model.Board;
 import model.CurrentPage;
 import model.Difficulty;
@@ -22,6 +22,8 @@ public class GameController {
 	public static Difficulty selectedDifficulty;
 	public static CurrentPage currentPage = CurrentPage.MAIN_PAGE;
 	public static String selectSprite;
+	
+	public static SceneController sc = new SceneController();
 	
 	@FXML
 	public static RadioButton playerVsAIRB, playerVsPlayerRB, easyRB, mediumRB, hardRB, lastPieceWinRB, lastPieceLossRB;
@@ -39,7 +41,7 @@ public class GameController {
 	public static ImageView sprite1IV, sprite2IV, sprite3IV;
 	
 	// gets the info the user inputs from the mainpage
-	public static void startGame() {
+	public void startGame() {
 		isAgainstAI = playerVsAIRB.isSelected();
 		lastPieceWins = lastPieceWinRB.isSelected();
 		if(easyRB.isSelected()) {
@@ -50,7 +52,7 @@ public class GameController {
 			selectedDifficulty = Difficulty.HARD;
 		}
 		
-		// need to change scenes to enter names page
+		sc.changeScene("/EnterNames.fxml", "");
 		currentPage = currentPage.ENTER_NAMES;
 	}
 	
@@ -64,7 +66,7 @@ public class GameController {
 	}
 	
 	// take all the information from name page to make the characters
-	public static void enterNames() {
+	public void enterNames() {
 		if(!player1TF.getText().trim().isEmpty() && (isAgainstAI || !player2TF.getText().trim().isEmpty())) {
 			Player player1 = new Player(player1TF.getText(), 1, true);
 			Player player2 = isAgainstAI ? new Player("NPC", 2, false) : new Player(player2TF.getText(), 2, true);
@@ -75,14 +77,14 @@ public class GameController {
 	}
 	
 	// game logic
-	public static void playGame() {
+	public void playGame() {
 		Board board = makeNewBoard();
 		do {
 			
 		} while (checkBoard(board));
 	}
 
-	public static void takeTurn(Board board) {
+	public void takeTurn(Board board) {
 		int ones = 0;
 		int twos = 0;
 		int fours = 0;
@@ -115,7 +117,7 @@ public class GameController {
 
 	}
 	
-	public static boolean checkBoard(Board board) {
+	public boolean checkBoard(Board board) {
 		int count = 0;
 		for(int i = 0; i < board.getBoard().length; i++) {
 			for(int j = 0; j < board.getBoard()[i].length; j++) {
@@ -132,7 +134,7 @@ public class GameController {
 		}
 	}
 	
-	public static Board makeNewBoard() {
+	public Board makeNewBoard() {
 		Board board;
 		if(selectedDifficulty == Difficulty.EASY) {
 			int[] pileNumber = {3, 3};
