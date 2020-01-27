@@ -17,7 +17,7 @@ public class SceneController{
 			loader.setController(ViewController.gc);
 			AnchorPane root = (AnchorPane) loader.load();
 			
-			Scene scene = new Scene(root, 600, 650);
+			Scene scene = new Scene(root, 650, 600);
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
