@@ -59,7 +59,7 @@ public class GameController {
 		sc.changeScene("/EnterNames.fxml", "");
 	}
 
-	// keyevent for the user to hit enter on the enter name page
+	// key event for the user to hit enter on the enter name page
 	public void keyPress(KeyEvent key) throws IOException {
 		if (key.getCode() == KeyCode.ENTER && currentPage == CurrentPage.ENTER_NAMES) {
 			enterNames();
@@ -121,9 +121,10 @@ public class GameController {
 	}
 
 	public void takeTurn(Board board, Player player) {
-
+		//TODO this
 		
 	}
+	
 
 	public void takeNPCTurn(Board board) {
 		int ones = 0;
