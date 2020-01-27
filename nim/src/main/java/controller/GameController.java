@@ -73,15 +73,17 @@ public class GameController {
 			//change scene to which game mode they selected
 			switch(selectedDifficulty) {
 			case EASY:
-				sc.changeScene("/HardGame.fxml", "");
+				sc.changeScene("/EasyGame.fxml", "");
 				break;
 			case MEDIUM:
-				sc.changeScene("/HardGame.fxml", "");
+				sc.changeScene("/MediumGame.fxml", "");
 				break;
 			case HARD:
 				sc.changeScene("/HardGame.fxml", "");
 				break;
 			}
+		}else {
+			sc.changeScene("/EnterNames.fxml", "");
 		}
 		
 	}

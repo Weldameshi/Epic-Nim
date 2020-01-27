@@ -2,22 +2,19 @@ package controller;
 
 import java.io.IOException;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class SceneController{
 
 	public static Stage primaryStage;
-
 	
 	public void changeScene(String fxmlName, String cssName){
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlName));
-			loader.setController(new SceneController());
+			loader.setController(ViewController.gc);
 			AnchorPane root = (AnchorPane) loader.load();
 			
 			Scene scene = new Scene(root, 600, 650);

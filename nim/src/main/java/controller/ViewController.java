@@ -7,13 +7,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class ViewController extends Application{
-
+	public static GameController gc;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			gc = new GameController();
 			SceneController.primaryStage = primaryStage;
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainPage.fxml"));
-			loader.setController(new GameController());
+			loader.setController(gc);
 			AnchorPane root = (AnchorPane) loader.load();
 			
 			Scene scene = new Scene(root, 600, 650);

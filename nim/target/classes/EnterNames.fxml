@@ -33,7 +33,7 @@
                </image>
             </ImageView>
             <Label layoutX="308.0" layoutY="359.0" text="Pick Spite" />
-            <Button layoutX="293.0" layoutY="521.0" mnemonicParsing="false" text="Submit" />
+            <Button onAction="#enterNames" layoutX="293.0" layoutY="521.0" mnemonicParsing="false" text="Submit" />
          </children>
       </AnchorPane>
    </children>
