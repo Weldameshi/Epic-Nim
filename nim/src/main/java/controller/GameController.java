@@ -283,12 +283,61 @@ public class GameController {
 
 				}
 			}
+			
+			// removeTwo
+			else if (removeTwo) {
+				// +removeFour
+				if (removeFour) {
+					int selectedRow = -1;
+					for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
+						if (counts.get(i) / 4 > 0)
+							selectedRow = i;
+					}
 
+					int piecesRemoved = 0;
+					for (int i = 0; piecesRemoved < 2; i++) {
+						if (board.getBoard()[selectedRow][i].isActive()) {
+							board.getBoard()[selectedRow][i].setActive(false);
+							piecesRemoved++;
+						}
+					}
+				}
+				
+				else {
+					int selectedRow = -1;
+					for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
+						if (counts.get(i) / 2 > 0 && (counts.get(i) / 2) % 2 == 1)
+							selectedRow = i;
+					}
+
+					int piecesRemoved = 0;
+					for (int i = 0; piecesRemoved < 2; i++) {
+						if (board.getBoard()[selectedRow][i].isActive()) {
+							board.getBoard()[selectedRow][i].setActive(false);
+							piecesRemoved++;
+						}
+					}
+				}
+			}
+			// removeFour
+			else if (removeFour) {
+				int selectedRow = -1;
+				for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
+					if (counts.get(i) / 4 > 0)
+						selectedRow = i;
+				}
+
+				int piecesRemoved = 0;
+				for (int i = 0; piecesRemoved < 4; i++) {
+					if (board.getBoard()[selectedRow][i].isActive()) {
+						board.getBoard()[selectedRow][i].setActive(false);
+						piecesRemoved++;
+					}
+				}
+			}
 		}
 
-		// removeTwo
-
-		// removeFour
+		
 
 	}
 
