@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -26,19 +27,19 @@ public class GameController {
 	public static SceneController sc = new SceneController();
 	
 	@FXML
-	public static RadioButton playerVsAIRB, playerVsPlayerRB, easyRB, mediumRB, hardRB, lastPieceWinRB, lastPieceLossRB;
+	public RadioButton playerVsAIRB, playerVsPlayerRB, easyRB, mediumRB, hardRB, lastPieceWinRB, lastPieceLossRB;
 	
 	@FXML
-	public static Button mainMenuSubmitBtn, helpBtn;
+	public Button mainMenuSubmitBtn, helpBtn;
 	
 	@FXML
-	public static Label gamePlayer1NameLabel, gamePlayer2NameLabel, gamePlayer1ScoreLabel, gamePlayer2ScoreLabel;
+	public Label gamePlayer1NameLabel, gamePlayer2NameLabel, gamePlayer1ScoreLabel, gamePlayer2ScoreLabel;
 	
 	@FXML
-	public static TextField player1TF, player2TF;
+	public TextField player1TF, player2TF;
 	
 	@FXML
-	public static ImageView sprite1IV, sprite2IV, sprite3IV;
+	public ImageView sprite1IV, sprite2IV, sprite3IV;
 	
 	// gets the info the user inputs from the mainpage
 	public void startGame() {
