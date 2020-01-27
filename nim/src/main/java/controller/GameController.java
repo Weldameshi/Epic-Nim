@@ -76,7 +76,10 @@ public class GameController {
 	
 	// game logic
 	public static void playGame() {
-		
+		Board board = makeNewBoard();
+		do {
+			
+		} while (checkBoard(board));
 	}
 
 	public static void takeTurn(Board board) {
@@ -127,6 +130,22 @@ public class GameController {
 		} else {
 			return true;
 		}
+	}
+	
+	public static Board makeNewBoard() {
+		Board board;
+		if(selectedDifficulty == Difficulty.EASY) {
+			int[] pileNumber = {3, 3};
+			board = new Board(pileNumber);
+		} else if(selectedDifficulty == Difficulty.MEDIUM) {
+			int[] pileNumber = {2, 5, 7};
+			board = new Board(pileNumber);
+		} else {
+			int[] pileNumber = {2, 3, 8, 9};
+			board = new Board(pileNumber);
+		}
+		
+		return board;
 	}
 
 }
