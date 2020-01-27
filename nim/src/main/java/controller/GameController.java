@@ -211,7 +211,7 @@ public class GameController {
 			if (removeOne) {
 				// +removeFour
 				if (removeFour) {
-					if (countsTotal == 5) {
+					if (countsTotal == 5 && !lastPieceWins) {
 						int selectedRow = -1;
 						for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
 							if (counts.get(i) / 4 > 0)
@@ -225,6 +225,21 @@ public class GameController {
 								piecesRemoved++;
 							}
 						}
+					} else if (countsTotal == 5 && lastPieceWins) {
+						int selectedRow = -1;
+						for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
+							if (counts.get(i) / 4 > 0)
+								selectedRow = i;
+						}
+
+						int piecesRemoved = 0;
+						for (int i = 0; piecesRemoved < 3; i++) {
+							if (board.getBoard()[selectedRow][i].isActive()) {
+								board.getBoard()[selectedRow][i].setActive(false);
+								piecesRemoved++;
+							}
+						}
+
 					} else {
 						int selectedRow = -1;
 						for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
@@ -246,7 +261,7 @@ public class GameController {
 
 				// +removeTwo
 				else if (removeTwo) {
-					if (countsTotal == 3) {
+					if (countsTotal == 3 && !lastPieceWins) {
 						int selectedRow = -1;
 						for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
 							if (counts.get(i) / 2 > 0)
@@ -260,6 +275,22 @@ public class GameController {
 								piecesRemoved++;
 							}
 						}
+
+					} else if (countsTotal == 3 && lastPieceWins) {
+						int selectedRow = -1;
+						for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
+							if (counts.get(i) / 2 > 0)
+								selectedRow = i;
+						}
+
+						int piecesRemoved = 0;
+						for (int i = 0; piecesRemoved < 1; i++) {
+							if (board.getBoard()[selectedRow][i].isActive()) {
+								board.getBoard()[selectedRow][i].setActive(false);
+								piecesRemoved++;
+							}
+						}
+
 					} else {
 						int selectedRow = -1;
 						for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
@@ -296,7 +327,7 @@ public class GameController {
 
 				}
 			}
-			
+
 			// removeTwo
 			else if (removeTwo) {
 				// +removeFour
@@ -314,8 +345,38 @@ public class GameController {
 							piecesRemoved++;
 						}
 					}
+				} else if (countsTotal == 2) {
+					if (lastPieceWins) {
+						int selectedRow = -1;
+						for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
+							if (counts.get(i) / 2 > 0)
+								selectedRow = i;
+						}
+
+						int piecesRemoved = 0;
+						for (int i = 0; piecesRemoved < 2; i++) {
+							if (board.getBoard()[selectedRow][i].isActive()) {
+								board.getBoard()[selectedRow][i].setActive(false);
+								piecesRemoved++;
+							}
+						}
+					} else {
+						int selectedRow = -1;
+						for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
+							if (counts.get(i) / 2 > 0)
+								selectedRow = i;
+						}
+
+						int piecesRemoved = 0;
+						for (int i = 0; piecesRemoved < 1; i++) {
+							if (board.getBoard()[selectedRow][i].isActive()) {
+								board.getBoard()[selectedRow][i].setActive(false);
+								piecesRemoved++;
+							}
+						}
+					}
 				}
-				
+
 				else {
 					int selectedRow = -1;
 					for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
@@ -334,27 +395,55 @@ public class GameController {
 			}
 			// removeFour
 			else if (removeFour) {
-				int selectedRow = -1;
-				for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
-					if (counts.get(i) / 4 > 0)
-						selectedRow = i;
-				}
+				if (countsTotal == 4) {
+					if (lastPieceWins) {
+						int selectedRow = -1;
+						for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
+							if (counts.get(i) / 4 > 0)
+								selectedRow = i;
+						}
 
-				int piecesRemoved = 0;
-				for (int i = 0; piecesRemoved < 4; i++) {
-					if (board.getBoard()[selectedRow][i].isActive()) {
-						board.getBoard()[selectedRow][i].setActive(false);
-						piecesRemoved++;
+						int piecesRemoved = 0;
+						for (int i = 0; piecesRemoved < 4; i++) {
+							if (board.getBoard()[selectedRow][i].isActive()) {
+								board.getBoard()[selectedRow][i].setActive(false);
+								piecesRemoved++;
+							}
+						}
+					} else {
+						int selectedRow = -1;
+						for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
+							if (counts.get(i) / 4 > 0)
+								selectedRow = i;
+						}
+
+						int piecesRemoved = 0;
+						for (int i = 0; piecesRemoved < 3; i++) {
+							if (board.getBoard()[selectedRow][i].isActive()) {
+								board.getBoard()[selectedRow][i].setActive(false);
+								piecesRemoved++;
+							}
+						}
+					}
+				} else {
+					int selectedRow = -1;
+					for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
+						if (counts.get(i) / 4 > 0)
+							selectedRow = i;
+					}
+
+					int piecesRemoved = 0;
+					for (int i = 0; piecesRemoved < 4; i++) {
+						if (board.getBoard()[selectedRow][i].isActive()) {
+							board.getBoard()[selectedRow][i].setActive(false);
+							piecesRemoved++;
+						}
 					}
 				}
 			}
 		}
 
-		
-
 	}
-
-	
 
 	public boolean checkBoard(Board board) {
 		int count = 0;
