@@ -119,6 +119,7 @@ public class GameController {
 		int fours = 0;
 		int count = 0;
 		int nimSum = 0;
+		int countsTotal = 0;
 		ArrayList<Integer> counts = new ArrayList<Integer>();
 		ArrayList<Integer> subtractedCounts = new ArrayList<Integer>();
 
@@ -129,6 +130,7 @@ public class GameController {
 				}
 			}
 			counts.add(count);
+			countsTotal += count;
 			count = 0;
 		}
 
@@ -166,20 +168,20 @@ public class GameController {
 			nimSum += fours % 2;
 			removeFour = true;
 		}
-		
+
 		if (twos % 2 > 0) {
 			nimSum += twos % 2;
 			removeTwo = true;
 		}
-		
+
 		if (ones % 2 > 0) {
 			nimSum += ones % 2;
 			removeOne = true;
 		}
-		
+
 		if (nimSum == 0) {
 			boolean pieceRemoved = false;
-			
+
 			for (int i = 0; i < board.getBoard().length && !pieceRemoved; i++) {
 				for (int j = 0; j < board.getBoard()[i].length && !pieceRemoved; j++) {
 					if (board.getBoard()[i][j].isActive()) {
@@ -188,21 +190,54 @@ public class GameController {
 					}
 				}
 			}
-			
+
 		}
-		
+
 		else if (nimSum > 0) {
-			//removeFour
-			
-			
-			
-			//removeTwo
-			
-			
-			
-			//removeOne
+			// removeOne/killing blow
+			if (removeOne) {
+				// +removeFour
+				if (removeFour) {
+					if (countsTotal == 5) {
+						int selectedRow = -1;
+						for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
+							if (counts.get(i) / 4 > 0)
+								selectedRow = i;
+						}
+
+						int piecesRemoved = 0;
+						for (int i = 0; piecesRemoved < 4; i++) {
+							if (board.getBoard()[selectedRow][i].isActive()) {
+								board.getBoard()[selectedRow][i].setActive(false);
+								piecesRemoved++;
+							}
+						}
+					} else {
+						int selectedRow = -1;
+						for (int i = 0; i < counts.size() && selectedRow < 0; i++) {
+							if (counts.get(i) / 4 > 0)
+								selectedRow = i;
+						}
+
+						int piecesRemoved = 0;
+						for (int i = 0; piecesRemoved < 3; i++) {
+							if (board.getBoard()[selectedRow][i].isActive()) {
+								board.getBoard()[selectedRow][i].setActive(false);
+								piecesRemoved++;
+							}
+						}
+
+					}
+
+				}
+
+			}
+
+			// removeTwo
+
+			// removeFour
+
 		}
-		
 
 	}
 
